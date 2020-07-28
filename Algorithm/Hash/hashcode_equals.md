@@ -1,6 +1,9 @@
 hashcode()와 equals() 차이
 ===
 
+hashcode에 대한 이해
+---
+
 hashcode() : 객체의 해시코드 값을 반환. 
 
 HashMap, HashTable : key - value 쌍으로 객체를 보관하는 도구
@@ -45,5 +48,11 @@ String 클래스 입장에서 a와 b는 같은 객체 (같은 문자열이기 �
 같은 객체인데도 불구하고 hashcode값이 다르면, 제대로 찾을 수 없음__
 
 따라서 인위적으로 String클래스 안에서의 hashcode메소드를 재정의하여 같은 String객체에 대해(equals 리턴값이 true) hashcode가 같아지도록 함.
+
+hashcode와 equals의 차이
+---
+
+![새롭게 정의된 클래스]
+
 
 
