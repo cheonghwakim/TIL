@@ -1,8 +1,12 @@
 # Spring 기본 개념 
 
 * [Spring Framework란?](#Spring-Framework란?)
- * [IoC란?](#Spring-Framework는-IoC-기반이다.-IoC란?)
-
+  * [IoC란?](#Spring-Framework는-IoC-기반이다.-IoC란?)
+  * [IoC의 구성요소 DI와 DL](#IoC의-구성요소-DI와-DL)
+    * [Spring Framework의 특징 POJO](#Spring-Framework의-특징-POJO)
+    * [Spring Framework의 특징 AOP](#Spring-Framework의-특징-AOP)
+    * [Spring Framework의 특징 MVC](#Spring-Framework의-특징-MVC(Model-2))
+    
 
 ## Spring framework란?
 
@@ -27,6 +31,73 @@ IoC는 Inversion of Contorol의 약자로 말그대로 **제어의 역전**이�
 **IoC란 기존 사용자가 모든 작업을 제어하던 것을 특별한 객체에 모든 것을 위임하여 객체의 생성부터 생명주기 등 모든 객체에 대한 제어권이 넘어간 것을 IoC, 제어의 역전**이라고 한다.
 
 ### IoC의 구성요소 DI와 DL 
+
+**IoC란 DI와 DL에 의해 구현된다.
+
+- DL(Dependency Lookup) - 의존성 검색
+모든 IoC 컨테이너는 각 컨테이너에서 관리해야 하는 객체들을 관리하기 위한 별도의 저장소를 가진다. **Bean에 접근하기 위해 컨테이너에서 제공하는 API를 이용하여 사용하고자 하는 Bean을 Lookup하는 것**으로 컨테이너 API와 의존관계를 만이 가지면 가질수록 어플리케이션에 종속되는 단점이 있다.
+
+- DI(Dependecy Injection) - 의존성 주입
+DI는 Spring에서 새롭게 지원하는 IoC의 한 형태로써 각 계층 사이, 각 Class 사이에 필요로 하는 의존관계가 있다면, 이를 컨테이너가 자동적으로 연결시켜 준다. 각 Class 사이의 의존관계를 Bean 설정 정보를 바탕으로 컨테이너가 자동적으로 연결한다.
+
+ ```
+  - Setter Injection: Class 사이의 의존관계를 연결시키기 위해 Setter 메소드를 이용하는 방법
+  - Constructor Injection: Class 사이의 의존관계를 연결시키기 위해 생성자를 이용하는 방법
+  - Method Injection: Method Injection은 Setter Injection과 Constructor Injection이 가지고 있는 한계점을 극복하기 위하여 
+    지원하고 있는 DI의 한 종류다. Singleton 인스턴스와 Non Singletone 인스턴스의 의존관계를 연결할 필요가 있을 때 사용한다.
+```
+<p align="center">
+  <img src="https://t1.daumcdn.net/cfile/tistory/252FCF3B5231689B17" height="300" width="400">
+</p>
+
+### Spring Framework의 특징 POJO
+
+POJO(Plain Old Java Object)로 말 그대로 평범한 자바 오브젝트이다.
+이전 EJB(Enterprise JavaBeans)는 확장과 재사용이 가능한 로직을 개발하기 위해 사용 되었는데, EJB는 한가지 기능을 위해 불필요한 로직이 과도하게 들어가는 단점이 있다.
+그래서 다시 조명을 받은 게 **POJO**이다. POJO는 getter/setter를 가진 단순 자바 오브젝트로 정의 한다.
+이런 단순 오브젝트는 **의존성이 없고 추후 테스트 및 유지보수가 편리한 유연성의 장점**을 가진다. 이러한 장점들로 인해 객체지향적인 다양한 설계와 구현이 가능해지고 POJO의 기반의 Framework가 조명을 받고 있다.
+Spring Framework 에서는 이러한 POJO을 지원하고 Spirng 홈페이지에는 이러한 글도 있습니다.
+
+*POJO를 사용함으로써, 당신의 코드는 더욱 심플해졌고, 그로인해 테스트하기 더 좋으며, 유연하다. 요구사항에 따라 기술적 선택을 바꿀 수 있도록 바뀌었다.*
+
+### Spring Framework의 특징 AOP
+
+뒤에도 설명하겠지만, AOP(Aspect Oriented Programming)이란 말 그대로 관점 지향 프로그래밍이다.
+대부분 소프트웨어 개발 프로세스에서 사용하는 방법은 OOP(Object Oriented Programming)이다.
+OOP는 객체지향 원칙에 따라 관심사가 같은 데이터를 한 곳에 모아 분리하고 낮은 결합도를 갖게 하여 독립적이고 유연한 모듈로 캡슐화하는 것을 일컫는다.
+하지만, 이런 과정 중 중복된 코드들이 많아지고 가독성, 확장성, 유지보수성을 떨어 뜨린다.
+이런 문제를 보완하기 위해 나온 것이 AOP이다.
+AOP에서는 **핵심 기능과 공통기능을 분리시켜 핵심 로직에 영향을 끼치지 않게 공통기능을 끼워 넣는 개발 형태**이다. 
+이렇게 개발함에 따라 **무분별하게 중복되는 코드를 한 곳에 모아 중복되는 코드를 제거하여 한 곳에 보관함으로써 한 번의 수정으로 모든 핵심기능들의 공통기능을 수정할 수 있어 효율적인 유지보수가 가능하며 재활용성이 극대화**된다.
+Spring에서는 AOP를 편리하게 사용할 수 있도록 이를 지원하고 있다.
+
+### Spring Framework의 특징 MVC(Model 2)
+
+<p align="center">
+  <img src="https://t1.daumcdn.net/cfile/tistory/9929B2345B9E4E002D" height="300" width="500">
+</p>
+
+MVC(Model View Controller)란?
+사용자 인터페이스와 비지니스 로직을 분리하여 개발하는 것이다. MVC에서는 Model 1과 Model 2가 나누어져 있으며 일반적인 MVC는 Model 2를 지칭한다.
+
+- Model
+Model에서는 데이터 처리를 담당하는 부분이다. Model 부분은 *Service 영역과 DAO 영역*으로 나누어진다.
+여기서 중요한 것은 Service 부분을 불필요하게 HTTP 통신을 하지 않아야 하고, request나 response와 같은 객체를 매개변수로 받아선 안 된다.
+또한, Model 부분의 Service는 view에 종속적인 코드가 없어야 하고, View 부분이 변경되더라도 Service 부분은 그대로 재사용할 수 있어야 한다.
+**Model에서는 View와 Controller에 대한 어떠한 정보도 가지고 있어서는 안 된다.**
+
+- View
+View는 사용자 Interface를 담당하며 사용자에게 보여지는 부분이다. View는 Controller를 통해 모델의 데이터에 대한 시각화를 담당하며 View는 자신이 요청을 보낼 Controller의 정보만 알고 있어야 한다. **Model이 가지고 있는 정보를 저장해서는 안 되며 Model, Controller의 구성 요소를 알아서는 안 된다.**
+
+- Controller
+Controller에서는 View에게 받은 요청을 가공하여 Model(Service 영역)에 이를 전달한다. 또한, Model로부터 받은 결과를 View로 넘겨주는 역할을 한다. Controller에서는 모든 요청 에러와 모델 에러를 처리하며 **View와 Controller에 대한 정보를 알고 있어야 한다.**
+
+이렇게 Model, View, Controller를 나누는 이유는, 소스를 분리함으로써 각 소스의 목적이 명확해지고 유지보수하는 데 있어서 용이하기 때문이다.
+Model의 Service 영역은 자신을 어떠한 Controller가 호출하든 상관없이 정해진 매개변수만 받는다면 자신의 비지니스 로직을 처리할 수 있어야 한다.
+즉, **모듈화를 통해 어디서든 재사용이 가능하여야 한다**는 뜻이다.
+이 말은 View의 정보가 달라지더라도 Controller에서 Serivce에 넘겨줄 매개변수 데이터 가공만 처리하면 되기 때문에 유지보수 비용을 절감할 수 있는 효과가 있다.
+또한 Service영역의 재사용이 용이하기 때문에 확장성 부분에서도 큰 효과를 볼 수 있는 장점이 있다.
+
 
 
 
