@@ -49,7 +49,7 @@ timeCheck 메소드의 flowchart는 아래와 같다.
 
 AOP를 이용하면 빨간 박스 안의 핵심 기능과 나머지 공통부분을 다른 Class로 뺄 수 있다. 때문에 AOP 기능을 **Cross-Cutting** 기능이라고도 한다.
 
-###AOP 용어
+### AOP 용어
 
 <p align="center">
   <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpfN5M%2FbtqE0lZkKfa%2FF6PvfwluAhiRRAs94EF0v0%2Fimg.png" height="350" width="500">
@@ -75,3 +75,17 @@ AOP를 이용하면 빨간 박스 안의 핵심 기능과 나머지 공통부분
 ---
 
 ## AOP 적용 타입
+
+Spring AOP는 다음과 같은 type의 Advice를 제공한다.
+
+- Advice의 동작 시점
+| 동작시점 | 설명 |
+|----------|--------|
+| Before | 메소드 실행 전에 동작 |
+| After | 메소드 실행 후에 동작 |
+| After-returning | 메소드가 정상적으로 실행된 후에 동작 |
+| After-throwing | 예외가 발생한 후에 동작 |
+| Around | 메소드 호출 이전, 이후, 예외발생 등 모든 시점에서 동작 |
+
+*AOP 구현방법 (추후)
+
