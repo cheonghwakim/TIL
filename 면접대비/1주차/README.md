@@ -5,7 +5,7 @@
   * [추상화](#IoC의-구성요소-DI와-DL)
   * [캡슐화](#IoC의-구성요소-DI와-DL)
   * [상속](#IoC의-구성요소-DI와-DL)
-* [String, StringBuilder, StringBuffer 차이점](#String,-StringBuilder,-StringBuffer-차이점)
+* [String/StringBuilder/StringBuffer 차이점](#String/StringBuilder/StringBuffer-차이점)
 * [Overloading과 Overriding 차이점](#Overloading과-Overriding-차이점)
 * [컬렉션 자료구조 종류와 특징](#컬렉션-자료구조-종류와-특징)
   * [1. Set](#1.-Set)
@@ -25,7 +25,7 @@
 ## 객체지향 언어의 특징
 
 
-## [String, StringBuilder, StringBuffer 차이점](https://github.com/cheonghwakim/CS-STUDY/tree/main/JAVA#String,-StirngBuffer,-StringBuilder%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90)
+## [String/StringBuilder/StringBuffer 차이점](https://github.com/cheonghwakim/CS-STUDY/tree/main/JAVA#String,-StirngBuffer,-StringBuilder%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90)
 
 
 
